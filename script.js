@@ -62,6 +62,25 @@ scrollBtns.addEventListener('click', ()=> {
 })
 
 
+let navigationLinks = document.querySelectorAll('.nav__link')
+console.log(navigationLinks);
+
+navigationLinks.forEach(link => {
+    link.addEventListener('click', function (e) {
+      e.preventDefault()
+      const idSection =  e.target.getAttribute('href');
+
+      let chosenSection = document.querySelector(idSection)
+      console.log(chosenSection);
+
+      if(chosenSection) {
+          chosenSection.scrollIntoView({ behavior: 'smooth' })
+      }
+
+    })
+})
+
+
 // EVENT PROPAGATION AND BUBBLING
 
 // function generateColor() {
