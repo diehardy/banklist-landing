@@ -62,23 +62,34 @@ scrollBtns.addEventListener('click', ()=> {
 })
 
 
-let navigationLinks = document.querySelectorAll('.nav__link')
-console.log(navigationLinks);
+// let navigationLinks = document.querySelectorAll('.nav__link')
 
-navigationLinks.forEach(link => {
-    link.addEventListener('click', function (e) {
-      e.preventDefault()
-      const idSection =  e.target.getAttribute('href');
+// navigationLinks.forEach(link => {
+//     link.addEventListener('click', function (e) {
+//       e.preventDefault()
+//       const idSection =  e.target.getAttribute('href');
 
-      let chosenSection = document.querySelector(idSection)
-      console.log(chosenSection);
+//       let chosenSection = document.querySelector(idSection)
+//       if(chosenSection) {
+//           chosenSection.scrollIntoView({ behavior: 'smooth' })
+//       }
 
-      if(chosenSection) {
-          chosenSection.scrollIntoView({ behavior: 'smooth' })
-      }
+//     })
+// })
 
-    })
+let menu = document.querySelector('.nav__links')
+menu.addEventListener('click', function(e) {
+  e.preventDefault()
+  if(e.target.classList.contains('nav__link')) {
+    let chosenSection = document.querySelector(e.target.getAttribute('href'))
+    chosenSection.scrollIntoView({ behavior: 'smooth' })
+  }
+
+
+
 })
+
+
 
 
 // EVENT PROPAGATION AND BUBBLING
