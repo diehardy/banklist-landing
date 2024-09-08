@@ -29,3 +29,25 @@ document.addEventListener('keydown', function (e) {
     closeModal();
   }
 });
+
+
+
+const header = document.querySelector('.header')
+console.log(header);
+
+let cookieMessage = document.createElement('div') 
+cookieMessage.textContent = 'We use a cookie to implement privacy'
+cookieMessage.className = 'cookie-message'
+
+header.append(cookieMessage)
+
+let btnCookie = document.createElement('button')
+btnCookie.textContent = 'Agree'
+btnCookie.className = 'btn--cookie'
+btnCookie.addEventListener('click', () => {
+  cookieMessage.remove()
+
+})
+cookieMessage.append(btnCookie)
+
+

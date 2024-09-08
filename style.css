@@ -666,9 +666,18 @@ h4 {
   display: flex;
   align-items: center;
   justify-content: space-evenly;
-  width: 100%;
-  background-color: white;
+  width: 30%;
+  border-radius: 8px;
+  margin: 20px;
+  background-color: #222;
+  padding: 5px;
   color: #bbb;
   font-size: 1.5rem;
   font-weight: 400;
+}
+
+.btn--cookie {
+  background-color:#39b385;
+  padding: 15px;
+  border-radius: 10px;
 }
