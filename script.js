@@ -51,3 +51,54 @@ btnCookie.addEventListener('click', () => {
 cookieMessage.append(btnCookie)
 
 
+
+
+let scrollBtns = document.querySelector('.btn--scroll-to')
+let section2 = document.getElementById('section--2')
+
+
+scrollBtns.addEventListener('click', ()=> {
+  section2.scrollIntoView({ behavior: 'smooth' })
+})
+
+
+// EVENT PROPAGATION AND BUBBLING
+
+// function generateColor() {
+
+//   function getRandomInt(min, max) {
+//     return Math.floor(Math.random() * (max - min + 1) + min); 
+//   }
+
+//   return `rgb(${getRandomInt(0, 255)}, ${getRandomInt(0, 255)}, ${getRandomInt(0, 255)})`
+// }
+
+
+// document.querySelectorAll('.nav__link')
+// .forEach(el => {
+// el.addEventListener('click',
+//   function (e) {
+//     e.preventDefault()
+//     this.style.backgroundColor = generateColor()
+//     console.log('link');
+//   }
+// )
+// })
+
+// document.querySelector('.nav__links').addEventListener('click',
+//   function (e) {
+//     e.preventDefault()
+//     this.style.backgroundColor = generateColor()
+//     console.log('links');
+//   }
+// )
+
+// document.querySelector('.nav').addEventListener('click',
+//   function (e) {
+//     e.preventDefault()
+//     this.style.backgroundColor = generateColor()
+//     console.log('menu');
+//   }
+// )
+
+
