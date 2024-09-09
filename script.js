@@ -84,12 +84,63 @@ menu.addEventListener('click', function(e) {
     let chosenSection = document.querySelector(e.target.getAttribute('href'))
     chosenSection.scrollIntoView({ behavior: 'smooth' })
   }
-
-
-
 })
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// TRAVERSING
+
+// const h1 = document.querySelector('h1')
+
+
+// // going downwards: child
+// console.log('selecting by a nested query selector: ', h1.querySelectorAll('.highlight'));
+// console.log('all child nodes:', h1.childNodes);
+// const children = h1.children;
+// h1.firstElementChild.style.backgroundColor = 'magenta';
+// h1.lastElementChild.style.backgroundColor = 'orangered';
+
+
+// // going upwards: parents
+
+// console.log('parent node: ', h1.parentNode);
+// console.log('parent el: ', h1.parentElement);
+
+
+// console.log(h1.closest('.header__title'));
+// //h1.closest('.header').style.background = 'var(--gradient-secondary)'
+
+
+// // going sideways: siblings
+
+// console.log(h1.previousElementSibling);
+// console.log(h1.nextElementSibling);
+
+// [...h1.parentElement.children].forEach(el => {
+//   console.log(el);
+//   if (el !== h1) {
+//     console.log('match');
+//     el.style.backgroundColor = 'blue'
+//   } else {
+//     console.log('not');
+
+//   }
+// }) 
 
 
 // EVENT PROPAGATION AND BUBBLING
