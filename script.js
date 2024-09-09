@@ -106,28 +106,15 @@ btnsContainer.addEventListener('click', function (e) {
 
   chosenTab = chosenTab.dataset.tab;
 
-  btnsContainer.querySelectorAll('button').forEach(btnChecked => {
-    if (btnChecked.dataset.tab == chosenTab) { 
-      btnChecked.classList.add('operations__tab--active')
-    } 
-
-    else {
-      btnChecked.classList.remove('operations__tab--active')
-    } 
-
-  })
+  btnsContainer.querySelectorAll('button').forEach(btn => btn.classList.remove('operations__tab--active'))
+  parentTabs.querySelectorAll('.operations__content').forEach(textContent => textContent.classList.remove('operations__content--active'))
 
 
-  parentTabs.querySelectorAll('.operations__content').forEach(el => {
-    if(el.classList.contains(`operations__content--${chosenTab}`)) {
-      el.classList.add('operations__content--active')
-    } 
+  let chosenBtn = btnsContainer.querySelector(`.operations__tab--${chosenTab}`)
+  let chosenContent = parentTabs.querySelector(`.operations__content--${chosenTab}`)
 
-    else {
-        el.classList.remove('operations__content--active')
-    }
-  })
-
+  chosenBtn.classList.add('operations__tab--active')
+  chosenContent.classList.add('operations__content--active')
 
 })
 
