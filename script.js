@@ -98,35 +98,45 @@ let parentTabs = document.querySelector('.operations')
 let btnsContainer = parentTabs.querySelector('.operations__tab-container')
 
 btnsContainer.addEventListener('click', function (e) {
-  console.log(e.target)
-  let chosenTab = e.target.dataset.tab;
-  if(!chosenTab) { chosenTab =  e.target.parentElement.dataset.tab }
+
+  if(!e.target.classList.contains('operations__tab-container')) {
+    let chosenTab = e.target.dataset.tab;
+    if(!chosenTab) { chosenTab =  e.target.parentElement.dataset.tab }
 
 
 
-  btnsContainer.querySelectorAll('button').forEach(btnChecked => {
-      if (btnChecked.dataset.tab == chosenTab) 
-        { btnChecked.classList.add('operations__tab--active')} 
-      else {
-          btnChecked.classList.remove('operations__tab--active')
+    btnsContainer.querySelectorAll('button').forEach(btnChecked => {
+      if (btnChecked.dataset.tab == chosenTab) { 
+        btnChecked.classList.add('operations__tab--active')
       } 
-  })
+
+      else {
+        btnChecked.classList.remove('operations__tab--active')
+      } 
+      
+    })
+  
+  
+    parentTabs.querySelectorAll('.operations__content').forEach(el => {
+      if(el.classList.contains(`operations__content--${chosenTab}`)) {
+        el.classList.add('operations__content--active')
+      } 
+
+      else {
+          el.classList.remove('operations__content--active')
+      }
+    })
 
 
-  parentTabs.querySelectorAll('.operations__content').forEach(el => {
-    if(el.classList.contains(`operations__content--${chosenTab}`)) {
-      el.classList.add('operations__content--active')
-    } 
-    else {
-        el.classList.remove('operations__content--active')
-    }
+
+
+
+  }
 
 
 
 
-})
-    
-
+  
 })
 
 
