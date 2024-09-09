@@ -77,6 +77,10 @@ scrollBtns.addEventListener('click', ()=> {
 //     })
 // })
 
+
+// NAVIGATION
+
+
 let menu = document.querySelector('.nav__links')
 menu.addEventListener('click', function(e) {
   e.preventDefault()
@@ -87,11 +91,46 @@ menu.addEventListener('click', function(e) {
 })
 
 
+// TABS
+
+let parentTabs = document.querySelector('.operations')
+
+let btnsContainer = parentTabs.querySelector('.operations__tab-container')
+
+console.log(btnsContainer);
+console.log(btnsContainer);
+btnsContainer.querySelectorAll('button').forEach(btn => {
+  
+  btn.addEventListener('click', function (e) {
+    const chosenTab = this.dataset.tab;
+    //console.log(chosenTab);
+     
+
+    btnsContainer.querySelectorAll('button').forEach(btnChecked => {
+        if (btnChecked.dataset.tab == chosenTab) 
+          { btnChecked.classList.add('operations__tab--active')} 
+        else {
+            btnChecked.classList.remove('operations__tab--active')
+        }
+    })
+
+
+    parentTabs.querySelectorAll('.operations__content').forEach(el => {
+      if(el.classList.contains(`operations__content--${chosenTab}`)) {
+        el.classList.add('operations__content--active')
+      } 
+      else {
+          el.classList.remove('operations__content--active')
+      }
+
+    }) 
 
 
 
 
+  })
 
+})
 
 
 
