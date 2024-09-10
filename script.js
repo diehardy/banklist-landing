@@ -7,6 +7,15 @@ const modal = document.querySelector('.modal');
 const overlay = document.querySelector('.overlay');
 const btnCloseModal = document.querySelector('.btn--close-modal');
 const btnsOpenModal = document.querySelectorAll('.btn--show-modal');
+const header = document.querySelector('.header')
+let cookieMessage = document.createElement('div') 
+let btnCookie = document.createElement('button')
+
+let scrollBtns = document.querySelector('.btn--scroll-to')
+let section2 = document.getElementById('section--2')
+let menu = document.querySelector('.nav__links')
+let parentTabs = document.querySelector('.operations')
+let btnsContainer = parentTabs.querySelector('.operations__tab-container')
 
 const openModal = function () {
   modal.classList.remove('hidden');
@@ -32,16 +41,12 @@ document.addEventListener('keydown', function (e) {
 
 
 
-const header = document.querySelector('.header')
-console.log(header);
 
-let cookieMessage = document.createElement('div') 
 cookieMessage.textContent = 'We use a cookie to implement privacy'
 cookieMessage.className = 'cookie-message'
 
 header.append(cookieMessage)
 
-let btnCookie = document.createElement('button')
 btnCookie.textContent = 'Agree'
 btnCookie.className = 'btn--cookie'
 btnCookie.addEventListener('click', () => {
@@ -52,9 +57,6 @@ cookieMessage.append(btnCookie)
 
 
 
-
-let scrollBtns = document.querySelector('.btn--scroll-to')
-let section2 = document.getElementById('section--2')
 
 
 scrollBtns.addEventListener('click', ()=> {
@@ -81,7 +83,6 @@ scrollBtns.addEventListener('click', ()=> {
 // NAVIGATION
 
 
-let menu = document.querySelector('.nav__links')
 menu.addEventListener('click', function(e) {
   e.preventDefault()
   if(e.target.classList.contains('nav__link')) {
@@ -93,9 +94,7 @@ menu.addEventListener('click', function(e) {
 
 // TABS
 
-let parentTabs = document.querySelector('.operations')
 
-let btnsContainer = parentTabs.querySelector('.operations__tab-container')
 
 btnsContainer.addEventListener('click', function (e) {
 
@@ -120,11 +119,27 @@ btnsContainer.addEventListener('click', function (e) {
 
 
 
+// menu fade animation
+
+function eraseLinks(e) {
+  console.log(this, e.target);
+  if(e.target.classList.contains('nav__link')){
+    const link = e.target;
+    const parentContainer = link.closest('.nav__links')
+    const siblings = parentContainer.querySelectorAll('.nav__link');
+    siblings.forEach(l => {
+      if(link != l) {
+        l.style.opacity = this;
+      }
+    })
+  }
+}
 
 
 
+menu.addEventListener('mouseover', eraseLinks.bind(0.5))
 
-
+menu.addEventListener('mouseout', eraseLinks.bind(1))
 
 
 // TRAVERSING
