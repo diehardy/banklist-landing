@@ -145,23 +145,52 @@ menu.addEventListener('mouseout', eraseLinks.bind(1))
 // sticky nav
 
 const nav = document.querySelector('.nav')
-const section1Position = section1.getBoundingClientRect()
-console.log(section1Position);
+// const section1Position = section1.getBoundingClientRect()
+// console.log(section1Position);
 
-window.addEventListener('scroll', () => {
+// window.addEventListener('scroll', () => {
+//   if(window.scrollY > section1Position.top) {
+//     nav.classList.add('sticky')
+//   } else {
+//     nav.classList.remove('sticky')
+//   }
+// })
 
 
+// const obsCallback = function(entries, observer) {
+//   entries.forEach(entry => {
+//     nav.classList.add('sticky')
+//   })
+// }
+
+// const obsOptions = {
+//   root: null,
+//   threshold: [0.5],
+// };
 
 
-  if(window.scrollY > section1Position.top) {
+// const observer = new IntersectionObserver(obsCallback, obsOptions)
+// observer.observe(section1)
+
+
+// OBSERVER 
+
+const stickyNav = function(entries) {
+  const [entry] = entries;
+  if(!entry.isIntersecting) {
     nav.classList.add('sticky')
   } else {
     nav.classList.remove('sticky')
   }
 
-})
+ }
 
+const headerObserver = new IntersectionObserver(stickyNav, {
+  root: null,
+  threshold: 0,
 
+});
+headerObserver.observe(header)
 
 
 
