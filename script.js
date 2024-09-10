@@ -12,6 +12,7 @@ let cookieMessage = document.createElement('div')
 let btnCookie = document.createElement('button')
 
 let scrollBtns = document.querySelector('.btn--scroll-to')
+let section1 = document.getElementById('section--1')
 let section2 = document.getElementById('section--2')
 let menu = document.querySelector('.nav__links')
 let parentTabs = document.querySelector('.operations')
@@ -135,11 +136,34 @@ function eraseLinks(e) {
   }
 }
 
-
-
 menu.addEventListener('mouseover', eraseLinks.bind(0.5))
-
 menu.addEventListener('mouseout', eraseLinks.bind(1))
+
+
+
+
+// sticky nav
+
+const nav = document.querySelector('.nav')
+const section1Position = section1.getBoundingClientRect()
+console.log(section1Position);
+
+window.addEventListener('scroll', () => {
+
+
+
+
+  if(window.scrollY > section1Position.top) {
+    nav.classList.add('sticky')
+  } else {
+    nav.classList.remove('sticky')
+  }
+
+})
+
+
+
+
 
 
 // TRAVERSING
